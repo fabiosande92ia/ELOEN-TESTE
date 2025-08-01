@@ -30,8 +30,10 @@ def carregar_perfil():
     try:
         with open(PERFIL_PATH, "r", encoding="utf-8") as f:
             perfil = json.load(f)
+            print("✅ PERFIL CARREGADO:", perfil)
             return json.dumps(perfil, indent=2, ensure_ascii=False)
-    except Exception:
+    except Exception as e:
+        print("❌ ERRO AO LER PERFIL:", e)
         return None
 
 def guardar_historico(pergunta, resposta):
