@@ -11,7 +11,7 @@ load_dotenv(dotenv_path="chave.env")
 
 # Inicializar app Flask
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Carregar variáveis do ambiente
 API_KEY = os.getenv("OPENAI_API_KEY")
